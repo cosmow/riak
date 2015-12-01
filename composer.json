@@ -19,7 +19,7 @@
         "jmikola/geojson": "Support GeoJSON geometry objects in 2dsphere queries"
     },
     "autoload": {
-        "psr-0": { "Doctrine\\Riak": "lib/" }
+        "psr-0": { "CosmoW\\Riak": "lib/" }
     },
     "extra": {
         "branch-alias": {
