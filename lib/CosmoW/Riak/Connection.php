@@ -22,7 +22,10 @@ namespace CosmoW\Riak;
 use Doctrine\Common\EventManager;
 use Doctrine\Riak\Event\EventArgs;
 use Doctrine\Riak\Util\ReadPreference;
+use CosmoW\ODM\Riak\RiakException;
 use Riak;
+use Riak\Client as RiakClient;
+use Riak\Node;
 
 /**
  * Wrapper for the RiakClient class.
@@ -35,7 +38,7 @@ class Connection
     /**
      * The PHP RiakClient instance being wrapped.
      *
-     * @var \RiakClient
+     * @var RiakClient
      */
     protected $riakClient;
 
@@ -73,14 +76,14 @@ class Connection
      * If $server is an existing RiakClient instance, the $options parameter
      * will not be used.
      *
-     * @param string|\RiakClient $server  Server string or RiakClient instance
+     * @param string|RiakClient $server  Server string or RiakClient instance
      * @param array               $options RiakClient constructor options
      * @param Configuration       $config  Configuration instance
      * @param EventManager        $evm     EventManager instance
      */
     public function __construct($server = null, array $options = array(), Configuration $config = null, EventManager $evm = null)
     {
-        if ($server instanceof \RiakClient || $server instanceof \Riak) {
+        if ($server instanceof RiakClient) {
             $this->riakClient = $server;
         } else {
             $this->server = $server;
@@ -167,7 +170,7 @@ class Connection
      * Get the RiakClient instance being wrapped.
      *
      * @deprecated 1.1 Replaced by getRiakClient(); will be removed for 2.0
-     * @return \RiakClient
+     * @return RiakClient
      */
     public function getRiak()
     {
@@ -178,12 +181,12 @@ class Connection
      * Set the RiakClient instance to wrap.
      *
      * @deprecated 1.1 Will be removed for 2.0
-     * @param \RiakClient $riakClient
+     * @param RiakClient $riakClient
      */
     public function setRiak($riakClient)
     {
-        if ( ! ($riakClient instanceof \RiakClient || $riakClient instanceof \Riak)) {
-            throw new \InvalidArgumentException('RiakClient or Riak instance required');
+        if ( ! ($riakClient instanceof RiakClient)) {
+            throw new \InvalidArgumentException('RiakClient instance required');
         }
 
         $this->riakClient = $riakClient;
@@ -192,7 +195,7 @@ class Connection
     /**
      * Get the RiakClient instance being wrapped.
      *
-     * @return \RiakClient
+     * @return RiakClient
      */
     public function getRiakClient()
     {
@@ -252,7 +255,7 @@ class Connection
     public function getStatus()
     {
         $this->initialize();
-        if ( ! ($this->riakClient instanceof \RiakClient || $this->riakClient instanceof \Riak)) {
+        if ( ! ($this->riakClient instanceof RiakClient)) {
             return null;
         }
 
@@ -281,9 +284,10 @@ class Connection
         $options = isset($options['wTimeout']) ? $this->convertWriteTimeout($options) : $options;
 
         $this->riakClient = $this->retry(function() use ($server, $options) {
-            return version_compare(phpversion('mongo'), '1.3.0', '<')
-                ? new \Riak($server, $options)
-                : new \RiakClient($server, $options);
+            return //version_compare(phpversion('mongo'), '1.3.0', '<')
+                //? new Riak($server, $options)
+                //: 
+                new RiakClient($server, $options);
         });
 
         if ($this->eventManager->hasListeners(Events::postConnect)) {
@@ -298,7 +302,7 @@ class Connection
      */
     public function isConnected()
     {
-        if ( ! ($this->riakClient instanceof \RiakClient || $this->riakClient instanceof \Riak)) {
+        if ( ! ($this->riakClient instanceof RiakClient)) {
             return false;
         }
 
@@ -379,7 +383,7 @@ class Connection
      *
      * @see http://php.net/manual/en/mongoclient.get.php
      * @param string $database
-     * @return \Riak
+     * @return Riak
      */
     public function __get($database)
     {
@@ -441,7 +445,7 @@ class Connection
         for ($i = 0; $i <= $numRetries; $i++) {
             try {
                 return $retry();
-            } catch (\RiakException $e) {
+            } catch (RiakException $e) {
                 if ($firstException === null) {
                     $firstException = $e;
                 }
