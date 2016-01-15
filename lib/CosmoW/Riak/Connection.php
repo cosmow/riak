@@ -22,6 +22,7 @@ namespace CosmoW\Riak;
 use Doctrine\Common\EventManager;
 use Doctrine\Riak\Event\EventArgs;
 use Doctrine\Riak\Util\ReadPreference;
+use Riak;
 
 /**
  * Wrapper for the RiakClient class.
