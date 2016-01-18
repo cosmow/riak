@@ -20,17 +20,17 @@
 namespace CosmoW\Riak;
 
 use Doctrine\Common\EventManager;
-use Doctrine\Riak\Event\AggregateEventArgs;
-use Doctrine\Riak\Event\DistinctEventArgs;
-use Doctrine\Riak\Event\EventArgs;
-use Doctrine\Riak\Event\FindEventArgs;
-use Doctrine\Riak\Event\GroupEventArgs;
-use Doctrine\Riak\Event\MapReduceEventArgs;
-use Doctrine\Riak\Event\MutableEventArgs;
-use Doctrine\Riak\Event\NearEventArgs;
-use Doctrine\Riak\Event\UpdateEventArgs;
-use Doctrine\Riak\Exception\ResultException;
-use Doctrine\Riak\Util\ReadPreference;
+use CosmoW\Riak\Event\AggregateEventArgs;
+use CosmoW\Riak\Event\DistinctEventArgs;
+use CosmoW\Riak\Event\EventArgs;
+use CosmoW\Riak\Event\FindEventArgs;
+use CosmoW\Riak\Event\GroupEventArgs;
+use CosmoW\Riak\Event\MapReduceEventArgs;
+use CosmoW\Riak\Event\MutableEventArgs;
+use CosmoW\Riak\Event\NearEventArgs;
+use CosmoW\Riak\Event\UpdateEventArgs;
+use CosmoW\Riak\Exception\ResultException;
+use CosmoW\Riak\Util\ReadPreference;
 use GeoJson\Geometry\Point;
 use BadMethodCallException;
 use RiakCommandCursor;
@@ -208,7 +208,7 @@ class Collection
     /**
      * Creates a new query builder instance.
      *
-     * @return \Doctrine\Riak\Query\Builder
+     * @return \CosmoW\Riak\Query\Builder
      */
     public function createQueryBuilder()
     {

@@ -19,13 +19,13 @@
 
 namespace CosmoW\Riak\Query;
 
-use Doctrine\Riak\Collection;
-use Doctrine\Riak\Cursor;
-use Doctrine\Riak\CursorInterface;
-use Doctrine\Riak\Database;
-use Doctrine\Riak\EagerCursor;
-use Doctrine\Riak\Iterator;
-use Doctrine\Riak\IteratorAggregate;
+use CosmoW\Riak\Collection;
+use CosmoW\Riak\Cursor;
+use CosmoW\Riak\CursorInterface;
+use CosmoW\Riak\Database;
+use CosmoW\Riak\EagerCursor;
+use CosmoW\Riak\Iterator;
+use CosmoW\Riak\IteratorAggregate;
 use BadMethodCallException;
 use InvalidArgumentException;
 use UnexpectedValueException;

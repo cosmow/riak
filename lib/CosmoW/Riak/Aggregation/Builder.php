@@ -19,9 +19,9 @@
 
 namespace CosmoW\Riak\Aggregation;
 
-use Doctrine\Riak\Collection;
-use Doctrine\Riak\Iterator;
-use Doctrine\Riak\Query\Expr as QueryExpr;
+use CosmoW\Riak\Collection;
+use CosmoW\Riak\Iterator;
+use CosmoW\Riak\Query\Expr as QueryExpr;
 use GeoJson\Geometry\Point;
 
 /**

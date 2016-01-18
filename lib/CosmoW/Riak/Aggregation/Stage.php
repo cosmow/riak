@@ -19,7 +19,7 @@
 
 namespace CosmoW\Riak\Aggregation;
 
-use Doctrine\Riak\Iterator;
+use CosmoW\Riak\Iterator;
 use GeoJson\Geometry\Point;
 
 /**

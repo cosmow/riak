@@ -19,9 +19,9 @@
 
 namespace CosmoW\Riak\Aggregation\Stage;
 
-use Doctrine\Riak\Aggregation\Builder;
-use Doctrine\Riak\Aggregation\Stage;
-use Doctrine\Riak\Query\Expr;
+use CosmoW\Riak\Aggregation\Builder;
+use CosmoW\Riak\Aggregation\Stage;
+use CosmoW\Riak\Query\Expr;
 use GeoJson\Geometry\Geometry;
 
 /**

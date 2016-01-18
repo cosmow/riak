@@ -19,7 +19,7 @@
 
 namespace CosmoW\Riak\Aggregation\Stage;
 
-use Doctrine\Riak\Aggregation\Builder;
+use CosmoW\Riak\Aggregation\Builder;
 use GeoJson\Geometry\Point;
 
 /**

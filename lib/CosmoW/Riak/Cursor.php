@@ -19,7 +19,7 @@
 
 namespace CosmoW\Riak;
 
-use Doctrine\Riak\Util\ReadPreference;
+use CosmoW\Riak\Util\ReadPreference;
 
 /**
  * Wrapper for the PHP RiakCursor class.

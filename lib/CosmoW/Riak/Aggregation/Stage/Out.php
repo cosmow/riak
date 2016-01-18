@@ -19,8 +19,8 @@
 
 namespace CosmoW\Riak\Aggregation\Stage;
 
-use Doctrine\Riak\Aggregation\Builder;
-use Doctrine\Riak\Aggregation\Stage;
+use CosmoW\Riak\Aggregation\Builder;
+use CosmoW\Riak\Aggregation\Stage;
 
 /**
  * Fluent interface for adding a $out stage to an aggregation pipeline.

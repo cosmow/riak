@@ -19,8 +19,8 @@
 
 namespace CosmoW\Riak\Query;
 
-use Doctrine\Riak\Collection;
-use Doctrine\Riak\Database;
+use CosmoW\Riak\Collection;
+use CosmoW\Riak\Database;
 use GeoJson\Geometry\Geometry;
 use GeoJson\Geometry\Point;
 use BadMethodCallException;
@@ -1508,7 +1508,7 @@ class Builder
      * "secondaryPreferred" read preference will be used. Otherwise, a "primary"
      * read preference will be used.
      *
-     * @see \Doctrine\Riak\Cursor::setRiakCursorSlaveOkay()
+     * @see \CosmoW\Riak\Cursor::setRiakCursorSlaveOkay()
      * @param boolean $bool
      * @return self
      */

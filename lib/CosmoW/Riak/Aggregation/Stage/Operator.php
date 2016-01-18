@@ -19,9 +19,9 @@
 
 namespace CosmoW\Riak\Aggregation\Stage;
 
-use Doctrine\Riak\Aggregation\Builder;
-use Doctrine\Riak\Aggregation\Expr;
-use Doctrine\Riak\Aggregation\Stage;
+use CosmoW\Riak\Aggregation\Builder;
+use CosmoW\Riak\Aggregation\Expr;
+use CosmoW\Riak\Aggregation\Stage;
 
 /**
  * Fluent interface for adding operators to aggregation stages.

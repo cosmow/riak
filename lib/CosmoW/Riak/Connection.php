@@ -20,8 +20,8 @@
 namespace CosmoW\Riak;
 
 use Doctrine\Common\EventManager;
-use Doctrine\Riak\Event\EventArgs;
-use Doctrine\Riak\Util\ReadPreference;
+use CosmoW\Riak\Event\EventArgs;
+use CosmoW\Riak\Util\ReadPreference;
 use CosmoW\ODM\Riak\RiakException;
 use Riak;
 use Riak\Client as RiakClient;
